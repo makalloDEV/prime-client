@@ -1,17 +1,24 @@
-import CartiImage from "../../assets/img/slider/carti.jpg"
-import "./Slider.css"
-import SliderHeader from "./components/SliderHeader"
-
+// import CartiImage from "../../assets/img/slider/carti.jpg"
+import './Slider.css';
+import SliderBottom from './components/SliderBottom';
+import SliderHeader from './components/SliderHeader';
+import { useState } from 'react';
 
 function Slider() {
-    return (
-        <div className="slider">
-            <div className="slider-slide">
-                <SliderHeader/>
-            </div>
+	const [dataFromChild, setDataFromChild] = useState<string>('');
 
-        </div>
-    )
+	const handleDataFromChild = (data: string) => {
+		setDataFromChild(data);
+	};
+
+	return (
+		<div className="slider">
+			<div className={`slider-slide ${dataFromChild}`}>
+				<SliderHeader />
+				<SliderBottom onDataChange={handleDataFromChild} />
+			</div>
+		</div>
+	);
 }
 
-export default Slider
+export default Slider;

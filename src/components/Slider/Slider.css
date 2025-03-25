@@ -2,79 +2,127 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Great+Vibes&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Zen+Kaku+Gothic+New&display=swap');
 
 .slider {
-    display: flex;
-    justify-content: center;
-    padding-top: 2rem;
+	display: flex;
+	justify-content: center;
+	padding-top: 2rem;
 }
 
 .slider-slide {
-    background-image: url(../../assets/img/slider/carti.jpg);
-    width: 1200px;
-    height: 600px;
-    border-radius: 60px;
+	background-image: url(../../assets/img/slider/carti.jpg);
+	width: 1200px;
+	height: 600px;
+	border-radius: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.carti {
+	background-image: url(../../assets/img/slider/carti.jpg);
+}
+
+.west {
+	background-image: url(../../assets/img/slider/west.jpg);
+}
+
+.travis {
+	background-image: url(../../assets/img/slider/travis.jpg);
 }
 
 @media (max-width: 1200px) {
-.slider-slide {
-    width: 1100px;
-    height: 580px;
-}
+	.slider-slide {
+		width: 1100px;
+		height: 580px;
+	}
 }
 
 @media (max-width: 1100px) {
-    .slider-slide {
-        width: 1000px;
-        height: 560px;
-    }
-    }
+	.slider-slide {
+		width: 1000px;
+		height: 560px;
+	}
+}
 
 @media (max-width: 1000px) {
-    .slider-slide {
-        width: 900px;
-        height: 540px;
-    }
+	.slider-slide {
+		width: 900px;
+		height: 540px;
+	}
 }
 
 @media (max-width: 900px) {
-    .slider-slide {
-        width: 800px;
-        height: 520px;
-    }
+	.slider-slide {
+		width: 800px;
+		height: 520px;
+	}
 }
 
 @media (max-width: 800px) {
-    .slider-slide {
-        width: 750px;
-        height: 500px;
-    }
+	.slider-slide {
+		width: 750px;
+		height: 500px;
+	}
 }
 
 .slider-header-text-style {
-    font-family: "Bungee Shade", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
-    font-size: 36pt;
-    margin: 0;
-  }
-
-.slider-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 40px 20px 40px;
-    
+	font-family: 'Bungee Shade', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: white;
+	font-size: 36pt;
+	margin: 0;
 }
 
-.slider-header-right{
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    align-items: center;
+.slider-header {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 40px 20px 40px;
+}
+
+.slider-header-right {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	align-items: center;
 }
 
 .nunito-regular {
-    font-family: "Nunito", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
+	font-family: 'Nunito', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.slider-bottom-text {
+	padding-left: 40px;
+	padding-bottom: 20px;
+}
+
+.slider-bottom-text p {
+	color: white;
+	font-weight: 300;
+	margin: 0;
+	padding: 0;
+}
+
+.slide-changer input {
+	display: none;
+}
+
+.switch-buttons button {
+	border: 2px solid white;
+	background: transparent;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.switch-buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.active {
+	background: white !important;
+}
