@@ -1,24 +1,35 @@
 // import CartiImage from "../../assets/img/slider/carti.jpg"
-import './Slider.css';
-import SliderBottom from './components/SliderBottom';
-import SliderHeader from './components/SliderHeader';
-import { useState } from 'react';
+import "./Slider.css";
+import SliderBottom from "./components/SliderBottom";
+import SliderHeader from "./components/SliderHeader";
+import { useState, useEffect, useCallback } from "react";
 
-function Slider() {
-	const [dataFromChild, setDataFromChild] = useState<string>('');
+interface SliderProps {
+  onDataChange: (arg0: string) => void;
+}
 
-	const handleDataFromChild = (data: string) => {
-		setDataFromChild(data);
-	};
+function Slider({ onDataChange }: SliderProps) {
+  const [dataFromChild, setDataFromChild] = useState<string>("carti");
 
-	return (
-		<div className="slider">
-			<div className={`slider-slide ${dataFromChild}`}>
-				<SliderHeader />
-				<SliderBottom onDataChange={handleDataFromChild} />
-			</div>
-		</div>
-	);
+  const handleDataFromChild = useCallback(
+    (data: string) => {
+      setDataFromChild(data);
+    },
+    [setDataFromChild]
+  );
+
+  useEffect(() => {
+    onDataChange(dataFromChild);
+  }, [dataFromChild, onDataChange]);
+
+  return (
+    <div className="slider">
+      <div className={`slider-slide ${dataFromChild}`}>
+        <SliderHeader />
+        <SliderBottom onDataChange={handleDataFromChild} />
+      </div>
+    </div>
+  );
 }
 
 export default Slider;

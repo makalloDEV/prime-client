@@ -1,0 +1,46 @@
+[
+  {
+    "carti": [
+      {
+        "albums": [
+          "/img/mainContent/Carti/Albums/iam.png",
+          "/img/mainContent/Carti/Albums/wlr.png",
+          "/img/mainContent/Carti/Albums/dl.png"
+        ],
+        "songs": [
+          "/img/mainContent/Carti/Songs/allred.png",
+          "/img/mainContent/Carti/Songs/meh.png",
+          "/img/mainContent/Carti/Songs/timeless.png"
+        ]
+      }
+    ],
+    "west": [
+      {
+        "albums": [
+          "/img/mainContent/West/Albums/graduation.png",
+          "/img/mainContent/West/Albums/wtt.png",
+          "/img/mainContent/West/Albums/yezuus.png"
+        ],
+        "songs": [
+          "/img/mainContent/West/Songs/cofg.png",
+          "/img/mainContent/West/Songs/eazy.png",
+          "/img/mainContent/West/Songs/runaway.png"
+        ]
+      }
+    ],
+    "travis": [
+      {
+        "albums": [
+          "/img/mainContent/Travis/Albums/astro.png",
+          "/img/mainContent/Travis/Albums/birds.png",
+          "/img/mainContent/Travis/Albums/utopia.png"
+        ],
+        "songs": [
+          "/img/mainContent/Travis/Songs/be.png",
+          "/img/mainContent/Travis/Songs/hir.png",
+          "/img/mainContent/Travis/Songs/ts.png"
+        ]
+      }
+    ]
+  }
+]

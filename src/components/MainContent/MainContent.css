@@ -1,0 +1,60 @@
+.main-content {
+  justify-items: center;
+  align-items: center;
+}
+
+.main-content-music-img {
+  margin: 100px 0px 0px 0px;
+}
+
+.main-content-music-img img {
+  margin-inline: 50px;
+}
+
+.main-content-music-img h2 {
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+.nunito-italic {
+  color: #fff;
+  text-align: center;
+  font-family: Nunito;
+  font-size: 48px;
+  font-style: italic;
+  font-weight: 150;
+  line-height: normal;
+}
+
+.main-content-music-img img {
+  animation-name: scale-change; /* Запускаем анимацию масштабирования */
+  animation-duration: 5s; /* Общая продолжительность анимации */
+  animation-iteration-count: infinite; /* Повторяем анимацию бесконечно */
+  animation-timing-function: ease-in-out; /* Функция сглаживания */
+}
+
+/* Указываем задержки для каждого изображения */
+.main-content-music-img img:nth-child(1) {
+  animation-delay: 0s; /* Первое изображение начинается сразу */
+}
+
+.main-content-music-img img:nth-child(2) {
+  animation-delay: 0s; /* Второе изображение начинается через 2 секунды */
+}
+
+.main-content-music-img img:nth-child(3) {
+  animation-delay: 2s; /* Третье изображение начинается через 4 секунды */
+}
+
+/* Ключевые кадры анимации */
+@keyframes scale-change {
+  0% {
+    transform: scale(0.95); /* Изначальный масштаб - 80% */
+  }
+  50% {
+    transform: scale(1); /* Увеличенный масштаб - 110% */
+  }
+  100% {
+    transform: scale(0.95); /* Возвращаемся к 80% */
+  }
+}
