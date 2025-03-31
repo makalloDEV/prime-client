@@ -1,20 +1,25 @@
-import Slider from "./components/Slider/Slider";
-import MainContent from "./components/MainContent/MainContent";
-import { useState } from "react";
-import { Data } from "./types";
+import { Route, Routes } from "react-router";
+import WelcomePage from "./components/WelcomePage/WelcomePage";
+import LoginPage from "./components/AuthPages/components/LoginPage/LoginPage";
+import RegisterPage from "./components/AuthPages/components/RegisterPage/RegisterPage";
 
 function App() {
-  const [dataFromChild, setDataFromChild] = useState<string>("carti");
-
-  const onDataChangeHandle = (data: string) => {
-    setDataFromChild(data);
-  };
-
   return (
-    <>
-      <Slider onDataChange={onDataChangeHandle}></Slider>
-      <MainContent artist={dataFromChild as keyof Data} />
-    </>
+    <Routes>
+      <Route
+        index
+        element={<WelcomePage />}
+      />
+      <Route
+        path="/login"
+        element={<LoginPage />}
+      />
+      <Route
+        path="/register"
+        element={<RegisterPage />}
+      />
+      <Route />
+    </Routes>
   );
 }
 

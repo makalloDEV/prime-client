@@ -1,0 +1,47 @@
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-content {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  background-color: #161616;
+  border: 2px solid white;
+  padding: 25px;
+  border-radius: 20px;
+  padding-inline: 30px;
+}
+
+.form-content input {
+  background-color: #212121;
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 5px;
+  margin-bottom: 20px;
+  width: 300px;
+  color: white;
+}
+
+.form-content label {
+  padding-bottom: 5px;
+}
+
+.form-content label,
+input,
+button {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.submit-button {
+  background-color: #6c6b6b;
+  border-radius: 6px;
+  border: 1px solid #7c7a7a;
+  color: white;
+  padding: 5px;
+  margin-top: 10px;
+}

@@ -1,6 +1,6 @@
 import MusicSection from "./components/MusicSection/MusicSection";
-import musicJson from "../../assets/dataSet/Music/music.json";
-import { JsonDataType, Data } from "../../types";
+import musicJson from "../../../assets/dataSet/Music/music.json";
+import { JsonDataType, Data } from "../../../types";
 import "./MainContent.css";
 
 interface MainContentProps {
