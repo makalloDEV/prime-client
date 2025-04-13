@@ -11,7 +11,7 @@ function SliderHeader() {
         </div>
         <div className="slider-header-right">
           <div className="slider-header-right-buttons">
-            <NavLink to="/login">
+            <NavLink to="/user/registration">
               <AuthButton
                 name="sign_in_btn"
                 backColor="white"
@@ -20,7 +20,7 @@ function SliderHeader() {
                 SIGN IN
               </AuthButton>
             </NavLink>
-            <NavLink to="/register">
+            <NavLink to="/user/login">
               <AuthButton
                 name="sign_on_btn"
                 backColor="black"

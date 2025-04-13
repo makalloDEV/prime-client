@@ -1,14 +1,18 @@
 interface FormProps {
   formName: string;
   buttonText: string;
-  inputs: string[][]; // [["inputLabel", "inputType", "inputPlaceHolder", "inputName"]
+  inputs: any[][]; // [["inputLabel", "inputType", "inputPlaceHolder", "inputName"]
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }
 import "./Form.css";
 
-function Form({ formName, inputs, buttonText }: FormProps) {
+function Form({ formName, inputs, buttonText, onSubmit }: FormProps) {
   return (
     <div className="form">
-      <form action="">
+      <form
+        onSubmit={onSubmit}
+        action=""
+      >
         <div className="form-content">
           <label>{formName}</label>
           {inputs.map((element) => (
@@ -18,6 +22,7 @@ function Form({ formName, inputs, buttonText }: FormProps) {
                 type={element[1]}
                 placeholder={element[2]}
                 name={element[3]}
+                onChange={(e) => element[4](e.target.value)}
               />
             </>
           ))}
