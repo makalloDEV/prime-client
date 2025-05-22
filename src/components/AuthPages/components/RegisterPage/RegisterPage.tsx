@@ -2,7 +2,7 @@ import Form from "../Form/Form";
 import "../../Auth.css";
 import { useState } from "react";
 import { AuthService } from "@/services/auth.service";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function RegisterPage() {

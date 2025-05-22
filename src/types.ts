@@ -17,6 +17,10 @@ export interface IUser {
   token: string;
 }
 
+export interface IUserId {
+  id: string;
+}
+
 export interface IUserData {
   username: string;
   password: string;
@@ -29,4 +33,18 @@ export interface IResponseUserData {
   updatedAt: string | undefined;
   _id: string | undefined;
   message: string | undefined;
+}
+
+export interface IResponseSongData {
+  title: string;
+  createdBy: string;
+  audioUrl: string;
+  imgUrl: string;
+}
+
+export interface ISongData {
+  title: string;
+  createdBy: string;
+  audioUrl: string;
+  imgUrl: string;
 }

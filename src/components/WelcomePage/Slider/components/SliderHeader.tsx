@@ -1,6 +1,6 @@
 import "../Slider.css";
 import AuthButton from "./AuthButton/AuthButton";
-import { NavLink } from "react-router";
+import { Link } from "react-router-dom";
 
 function SliderHeader() {
   return (
@@ -11,7 +11,7 @@ function SliderHeader() {
         </div>
         <div className="slider-header-right">
           <div className="slider-header-right-buttons">
-            <NavLink to="/user/registration">
+            <Link to="/user/registration">
               <AuthButton
                 name="sign_in_btn"
                 backColor="white"
@@ -19,8 +19,8 @@ function SliderHeader() {
               >
                 SIGN IN
               </AuthButton>
-            </NavLink>
-            <NavLink to="/user/login">
+            </Link>
+            <Link to="/user/login">
               <AuthButton
                 name="sign_on_btn"
                 backColor="black"
@@ -28,7 +28,7 @@ function SliderHeader() {
               >
                 SIGN ON
               </AuthButton>
-            </NavLink>
+            </Link>
             <AuthButton
               name="for_artist_btn"
               backColor="transparent"
