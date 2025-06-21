@@ -36,15 +36,30 @@ export interface IResponseUserData {
 }
 
 export interface IResponseSongData {
+  id: string;
   title: string;
   createdBy: string;
-  audioUrl: string;
-  imgUrl: string;
+  audioUrl: string | undefined;
+  imageUrl: string | undefined;
 }
 
-export interface ISongData {
+export interface IRequestSongData {
   title: string;
   createdBy: string;
-  audioUrl: string;
-  imgUrl: string;
+  audioUrl: string | undefined;
+  imageUrl: string | undefined;
+}
+
+export type updateSongType = Partial<IResponseSongData>;
+
+export interface ISongDataFiles {
+  cover: File;
+  audio: File;
+}
+
+export interface IUploadResponse {
+  success: boolean;
+  coverUrl?: string;
+  audioUrl?: string;
+  message?: string;
 }

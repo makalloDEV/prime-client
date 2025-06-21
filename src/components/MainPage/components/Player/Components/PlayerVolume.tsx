@@ -1,6 +1,22 @@
+import { useDispatch, useSelector } from "react-redux";
 import { PlayerBarButton } from "./PlayerBarButton";
+import { useEffect, useRef } from "react";
+import { setVolume } from "@/store/player/player.slice";
 
 export default function PlayerVolume() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const { isPlaying, currentTrack, volume } = useSelector(
+    (state: any) => state.player
+  );
+
+  // Dispatch для изменения громкости
+  const dispatch = useDispatch();
+
+  // Обработчик изменения ползунка
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseFloat(e.target.value);
+    dispatch(setVolume(newVolume));
+  };
   return (
     <div className="flex items-center space-x-4 mr-4">
       {/* Кнопка очереди */}
@@ -36,9 +52,15 @@ export default function PlayerVolume() {
       />
 
       {/* Ползунок громкости */}
-      <div className="w-24 h-1.5 bg-gray-200 rounded-full">
-        <div className="w-3/4 h-full bg-gray-600 rounded-full"></div>
-      </div>
+      <input
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value={volume}
+        onChange={handleVolumeChange}
+        className="w-24 accent-white"
+      />
     </div>
   );
 }

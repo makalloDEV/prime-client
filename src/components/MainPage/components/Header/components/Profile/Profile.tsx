@@ -16,7 +16,7 @@ export function Profile() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="bg-zinc-800 p-2 rounded-full outline-none mr-3 hover:cursor-pointer hover:scale-105 transition-transform duration-200">
+        <button className="bg-zinc-800 p-2 rounded-full outline-none mr-3 hover:cursor-pointer hover:border-white hover:border hover:scale-105 transition-transform duration-200">
           <ProfileIconSvg></ProfileIconSvg>
         </button>
       </DropdownMenuTrigger>

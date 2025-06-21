@@ -1,5 +1,4 @@
 import Form from "../Form/Form";
-import "../../Auth.css";
 import { useState } from "react";
 import { AuthService } from "@/services/auth.service";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +28,7 @@ function RegisterPage() {
       if (confirmPassword == password) {
         const data = await AuthService.registration({ username, password });
         if (data) {
-          toLogin("../login", { relative: "path" }); // пока так, потом нужно будет через .env
+          toLogin("../login", { relative: "path" });
           toast.success("Account has created successfully!", {
             position: "bottom-left",
             theme: "colored",
@@ -72,20 +71,21 @@ function RegisterPage() {
   ];
 
   return (
-    <>
-      <div className="main">
-        <div className="header">
-          <h1>PRIME</h1>
-          <h2>SIGN IN TO PRIME</h2>
-        </div>
-        <Form
-          onSubmit={registrationHandler}
-          formName=""
-          inputs={inputs}
-          buttonText="Sign on"
-        />
+    <div className="main">
+      <div
+        className="header"
+        style={{ textAlign: "center" }}
+      >
+        <h1>PRIME</h1>
+        <h2>SIGN IN TO PRIME</h2>
       </div>
-    </>
+      <Form
+        onSubmit={registrationHandler}
+        formName=""
+        inputs={inputs}
+        buttonText="Sign on"
+      />
+    </div>
   );
 }
 

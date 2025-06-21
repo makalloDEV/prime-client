@@ -1,5 +1,4 @@
 import Form from "../Form/Form";
-import "../../Auth.css";
 import { useState } from "react";
 import { AuthService } from "@/services/auth.service";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +7,6 @@ import { useAppDispatch } from "@/store/hooks";
 import { login } from "@/store/user/user.slice";
 import { toast } from "react-toastify";
 
-// [["inputLabel", "inputType", "inputPlaceHolder", "inputName", handler]
 function LoginPage() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -30,7 +28,7 @@ function LoginPage() {
       if (data) {
         setTokenToLocalStorage("token", data.token);
         dispatch(login(data));
-        toMain("../../main", { relative: "path" }); // пока так, потом нужно будет через .env
+        toMain("../../main", { relative: "path" });
       }
     } catch (err: any) {
       const error = err.response?.data.message;
@@ -52,21 +50,24 @@ function LoginPage() {
       setPasswordHandle,
     ],
   ];
+
   return (
-    <>
-      <div className="main">
-        <div className="header">
-          <h1>PRIME</h1>
-          <h2>SIGN ON PRIME</h2>
-        </div>
-        <Form
-          onSubmit={loginHandler}
-          formName=""
-          inputs={inputs}
-          buttonText="Sign in"
-        />
+    <div className="main flex flex-col items-center justify-center min-h-screen">
+      {" "}
+      {/* Центрируем всю форму */}
+      <div className="header text-center mb-8">
+        {" "}
+        {/* Центрируем текст и добавляем отступ снизу */}
+        <h1 className="text-5xl font-bold mb-2">PRIME</h1>{" "}
+        {/* Увеличиваем размер и делаем жирным */}
       </div>
-    </>
+      <Form
+        onSubmit={loginHandler}
+        formName=""
+        inputs={inputs}
+        buttonText="Sign in"
+      />
+    </div>
   );
 }
 

@@ -1,18 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import { IUser } from "@/types";
+import { IRequestSongData, IResponseSongData, IUser } from "@/types";
 
 // Define a type for the slice state
 interface UserState {
   user: IUser | null;
   isAuth: boolean;
+  search: IResponseSongData[];
 }
 
 // Define the initial state using that type
 const initialState: UserState = {
   user: null,
   isAuth: false,
+  search: [],
 };
 
 export const userSlice = createSlice({
@@ -27,10 +29,13 @@ export const userSlice = createSlice({
       state.user = null;
       state.isAuth = false;
     },
+    searchCollection: (state, payload: PayloadAction<IResponseSongData[]>) => {
+      state.search = payload.payload;
+    },
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { login, logout, searchCollection } = userSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state.user;

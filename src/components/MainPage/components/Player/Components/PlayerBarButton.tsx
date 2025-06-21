@@ -13,6 +13,7 @@ interface PlayerBarButtonProps {
   strokeLinecap: string;
   strokeLinejoin: string;
   className?: string;
+  onClick?: () => void;
 }
 
 export function PlayerBarButton({
@@ -27,6 +28,7 @@ export function PlayerBarButton({
   strokeLinecap,
   strokeLinejoin,
   className,
+  onClick,
 }: PlayerBarButtonProps) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
@@ -43,6 +45,7 @@ export function PlayerBarButton({
       className={`hover:cursor-pointer ${className}`}
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
+      onClick={onClick}
     >
       <svg
         xmlns={xmlns}

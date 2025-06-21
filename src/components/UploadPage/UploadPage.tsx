@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { UserService } from "../../services/user.service";
-import { IResponseSongData } from "@/types";
-import UploaderHeader from "./Components/UploaderHeader";
+import { IResponseSongData, updateSongType } from "@/types";
+import Uploader from "./Components/Uploader";
 
 function UploadPage() {
   const [songs, setSongs] = useState<IResponseSongData[] | []>([]);
@@ -19,7 +19,7 @@ function UploadPage() {
     fetchData();
   }, []);
 
-  return <UploaderHeader songs={songs}></UploaderHeader>;
+  return <Uploader songs={songs}></Uploader>;
 }
 
 export default UploadPage;

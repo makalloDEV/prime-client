@@ -16,12 +16,10 @@ function MainPage() {
           direction="horizontal"
           className="h-full"
         >
-          {/* Левая панель - коллекция */}
           <Collection />
 
-          <ResizableHandle className="bg-black ml-1 mr-1 w-1 hover:bg-zinc-700 transition-colors" />
+          <ResizableHandle className="bg-black ml-1 mr-1 w-1 " />
 
-          {/* Правая панель - MainSection с контентом страниц */}
           <MainSection />
         </ResizablePanelGroup>
       </div>

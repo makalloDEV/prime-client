@@ -1,11 +1,16 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { FileUpload } from "./components/FileUpload";
-import { CheckCheck } from "lucide-react";
+import { FileEdit } from "./components/FileEdit";
 import { SongService } from "@/services/song.service";
+import { updateSongType } from "@/types";
 import SumbitButton from "../Components/SumbitButton";
 import { useNavigate } from "react-router-dom";
 
-function UploadSongPage() {
+interface EditSongPageProps {
+  songId: string;
+  onSubmit: () => void;
+}
+
+function EditSongPage({ songId, onSubmit }: EditSongPageProps) {
   const [cover, setCover] = useState(null);
   const [audio, setAudio] = useState(null);
   const [songName, setSongName] = useState("");
@@ -18,44 +23,45 @@ function UploadSongPage() {
     setSongName(e.target.value);
   };
 
-  const onChangeIsSuccessHandler = () => {};
-
   const onChangeArtistName = (e: ChangeEvent<HTMLInputElement>) => {
     setArtistName(e.target.value);
   };
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
     try {
+      e.preventDefault();
       if (songName.length === 0 || artistName.length === 0) {
         throw new Error("Поля songName и ArtistName не должны быть пустыми!");
       }
 
       if (cover === null || audio === null) {
-        throw new Error("Загрузите аудио и фото.");
+        throw new Error("Поля cover и audio не должны быть пустыми!");
       }
 
       // Если все проверки пройдены
       const data = await SongService.saveSongFiles(cover, audio);
-      const song = await SongService.createSong({
+      const updateSongData: updateSongType = {
         title: songName,
         createdBy: artistName,
         audioUrl: data.audioUrl,
         imageUrl: data.coverUrl,
-      });
+      };
+      const song = await SongService.updateSong(updateSongData, songId);
 
-      console.log("Песня успешно создана:", song);
+      onSubmit();
+      console.log("Песня успешно обновлена", song);
       setIsSuccess(true);
       setTimeout(() => {
         navigate("../../main/uploader");
       }, 100);
+      window.location.reload();
     } catch (error) {
       console.error("Ошибка:", error);
     }
   };
 
   return (
-    <div className="flex justify-center mt-14">
+    <div className="flex justify-center mt-5">
       <div className="max-w-md mx-auto p-4 bg-zinc-700 rounded-lg">
         <div className="mb-3">
           <h2 className="text-md font-medium text-white">Cover</h2>
@@ -64,7 +70,7 @@ function UploadSongPage() {
           action=""
           onSubmit={onSubmitHandler}
         >
-          <FileUpload
+          <FileEdit
             setFile={setCover}
             accept="image/*"
             fileType="image"
@@ -84,7 +90,7 @@ function UploadSongPage() {
                 )}
               </button>
             </div>
-          </FileUpload>
+          </FileEdit>
 
           <div className="space-y-3 bg-zinc-600 p-4 rounded-md shadow-xs">
             <div>
@@ -111,7 +117,7 @@ function UploadSongPage() {
               />
             </div>
 
-            <FileUpload
+            <FileEdit
               setFile={setAudio}
               accept="audio/*"
               fileType="audio"
@@ -129,13 +135,14 @@ function UploadSongPage() {
                   </button>
                 )}
               </div>
-            </FileUpload>
+            </FileEdit>
           </div>
-          <SumbitButton isSuccess={isSuccess}>Upload</SumbitButton>
+
+          <SumbitButton isSuccess={isSuccess}>Edit</SumbitButton>
         </form>
       </div>
     </div>
   );
 }
 
-export default UploadSongPage;
+export default EditSongPage;

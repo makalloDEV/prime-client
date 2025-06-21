@@ -13,6 +13,8 @@ import { useNavigate } from "react-router-dom";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import UploadPage from "./components/UploadPage/UploadPage";
 import UploadSongPage from "./components/UploadPage/UploadSongPage/UploadSongPage";
+import EditSongPage from "./components/UploadPage/EditSongPage/editSongPage";
+import MainContent from "./components/MainPage/components/MainWindow/MainContent/MainContent";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -69,7 +71,7 @@ function App() {
         >
           <Route
             index
-            element={<div>Main Content</div>}
+            element={<MainContent />}
           />{" "}
           {/* Добавляем индексный роут */}
           <Route
@@ -83,6 +85,10 @@ function App() {
           <Route
             path="upload"
             element={<UploadSongPage />}
+          />
+          <Route
+            path="edit"
+            element={<EditSongPage />}
           />
           {/* Add other nested routes here */}
         </Route>
